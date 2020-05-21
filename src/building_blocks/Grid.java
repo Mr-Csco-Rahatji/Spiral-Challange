@@ -50,7 +50,7 @@ public class Grid {
 			}
 			System.out.println(" ");
 		}
-		System.out.println("\n\r @author Frans Csco Rahatji");
+		System.out.println("\n\r@author Frans Csco Rahatji");
 	}
 	
 	private void Populate(Cell current) {

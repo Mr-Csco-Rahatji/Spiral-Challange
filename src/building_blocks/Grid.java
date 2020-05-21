@@ -54,7 +54,64 @@ public class Grid {
 	}
 	
 	private void Populate(Cell current) {
-		
+		if(current.getValue()==nSize) {
+			return;
+		}
+		if(checkLeft(current)==-1) {
+			if(checkUp(current)==-1) {
+				if(checkRight(current)==-1) {
+					Populate(GoRight(current));
+				}else if(checkRight(current)==-2) {
+					//don't think it will ever reach this point
+				}else {
+					Populate(GoUp(current));
+				}
+			}else if (checkUp(current)==-2) {
+				if(checkRight(current)==-1) {
+					Populate(GoRight(current));
+				}else if(checkRight(current)==-2) {
+					//don't think it will ever reach this point
+				}else {
+					Populate(GoUp(current));
+				}
+			}else {
+				Populate(GoLeft(current));
+			}
+		}else if(checkLeft(current)==-2) {
+			if(checkUp(current)==-1) {
+				if(checkRight(current)==-1) {
+					Populate(GoRight(current));
+				}else if(checkRight(current)==-2) {
+					//don't think it will ever reach this point
+				}else {
+					Populate(GoUp(current));
+				}
+			}else if (checkUp(current)==-2) {
+				if(checkRight(current)==-1) {
+					Populate(GoRight(current));
+				}else if(checkRight(current)==-2) {
+					//don't think it will ever reach this point
+				}else {
+					Populate(GoUp(current));
+				}
+			}else {
+				Populate(GoLeft(current));
+			}
+		}else {
+			if(checkDown(current)==-1) {
+				Populate(GoDown(current));
+			}else if(checkDown(current)==-2) {
+				return;
+			}else {
+				if(checkRight(current)==-1) {
+					Populate(GoRight(current));
+				}else if(checkRight(current)==-2) {
+					return;
+				}else {
+					return;
+				}
+			}
+		}
 	}
 	
 	private int checkLeft(Cell self) {
